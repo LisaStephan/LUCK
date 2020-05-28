@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to LUCK’s documentation! &#8212; LUCK  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-LUCK.LUCK">
+<span id="welcome-to-luck-s-documentation"></span><h1>Welcome to LUCK’s documentation!<a class="headerlink" href="#module-LUCK.LUCK" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="LUCK.LUCK.KMEANS">
+<em class="property">class </em><code class="sig-prename descclassname">LUCK.LUCK.</code><code class="sig-name descname">KMEANS</code><span class="sig-paren">(</span><em class="sig-param">k</em>, <em class="sig-param">max_iter=300</em>, <em class="sig-param">metric=&lt;function paired_euclidean_distances&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#LUCK.LUCK.KMEANS" title="Permalink to this definition">¶</a></dt>
+<dd><p>K-Means clustering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> (<em>int</em>) – The number of clusters to form as well as the number of centroids to generate.</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em><em>, </em><em>default=300</em>) – Maximum number of iterations of the K-Means algorithm for a single run.</p></li>
+<li><p><strong>metrix</strong> – The metric to use when calculating distances between instances in a feature array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>cluster_centers</strong> (<em>ndarray of shape</em><em> (</em><em>n_clusters</em><em>, </em><em>n_features</em><em>)</em>) – Coordinates of cluster centers.</p></li>
+<li><p><strong>labels</strong> (<em>ndarry of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) – Labels of each point.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="LUCK.LUCK.KMEANS.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LUCK.LUCK.KMEANS.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes a K-Means clustering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – Training instances to cluster.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Fitted estimator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LUCK.LUCK.KMEANS.set_params">
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LUCK.LUCK.KMEANS.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>params</strong> (<em>dict</em>) – Estimator parameters.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Estimator instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="LUCK.LUCK.LUCK">
+<em class="property">class </em><code class="sig-prename descclassname">LUCK.LUCK.</code><code class="sig-name descname">LUCK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">threshold</span></em>, <em class="sig-param"><span class="n">algo</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LUCK.LUCK.LUCK" title="Permalink to this definition">¶</a></dt>
+<dd><p>LUCK clustering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>threshold</strong> (<em>float</em>) – Threshold for the variation in dynamic kNN.</p></li>
+<li><p><strong>algo</strong> (<em>object</em>) – Cluster algorithm. Selected cluster algorithm must have a metric parameter to specify the metric used to calculate the distance between instances.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dynamic_kNN_result</strong> (<em>dict</em>) – <p>{“normalized_input_data”: data, “label”: label, “variation_values_list”: variation_values_list, “min_k”: min_k}
+data: ndarray of shape (n_samples, n_features)</p>
+<blockquote>
+<div><p>Normalized dataset.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>label: ndarray of shape (n_sampels,)</dt><dd><p>Labels of each point generated by the dynamic knN. -2 if it is an outlier, otherwise -3.</p>
+</dd>
+<dt>variation_values_list: ndarray of shape (n_samples of the whole data - min_k, n_samples)</dt><dd><p>Variation values with increasing k until reaching the threshold.</p>
+</dd>
+<dt>min_k: int</dt><dd><p>Start value for k at dynamic kNN.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>data_expanded</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>2*n_features</em><em>)</em>) – Dataset extended with the components of average vectors.</p></li>
+<li><p><strong>fitted_estimator</strong> (<em>object</em>) – Fitted estimator of the selected cluster algorithm.</p></li>
+<li><p><strong>labels</strong> (<em>ndarry of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) – Labels of each point.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="LUCK.LUCK.LUCK.dynamic_kNN">
+<code class="sig-name descname">dynamic_kNN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LUCK.LUCK.LUCK.dynamic_kNN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the average vector over the connection vectors to the k nearest neighbors for each point, where k is the smallest value for each point where the variation over the connection vectors falls below a certain threshold.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – Dataset.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>data_with_vector, neighbor_indices, labels
+data_with_vector: ndarray of shape (n_samples, 2*n_features)</p>
+<blockquote>
+<div><p>Dataset extended with the components of average vectors.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>neighbor_indices: ndarray of shape (n_samples,)</dt><dd><p>Indices of the k nearest neighbors for each datapoint. k can be different for each point.</p>
+</dd>
+<dt>labels: ndarray of shape (n_sampels,)</dt><dd><p>Labels of each point generated by this method. -2 if it is an outlier, otherwise -3.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LUCK.LUCK.LUCK.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LUCK.LUCK.LUCK.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes a LUCK clustering.</p>
+<p>Extends the data set by one vector per data point, which reflects the average over the connection vectors to the k nearest neighbors.
+With the extended data set now a Clustering is performed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – Training instances to cluster.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Fitted estimator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LUCK.LUCK.LUCK.get_connection_vector">
+<code class="sig-name descname">get_connection_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LUCK.LUCK.LUCK.get_connection_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the vector between two points standardized with respect to the direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>nparray of shape</em><em> (</em><em>n_features</em><em>,</em><em>)</em>) – Point.</p></li>
+<li><p><strong>b</strong> (<em>nparray of shape</em><em> (</em><em>n_features</em><em>,</em><em>)</em>) – Point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Vector between point a and point b.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>nparray of shape (n_features,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LUCK.LUCK.LUCK.scalar_length_metric">
+<code class="sig-name descname">scalar_length_metric</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LUCK.LUCK.LUCK.scalar_length_metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the distance between two points with their vectors based on the scalars between the direction vectors and between the connection vector of the two points and the direction vector of a point, taking account of the lenght of the connection vector.</p>
+<p>||v_x o v_y| - (<a href="#id1"><span class="problematic" id="id2">|v_x o v_xy|</span></a> + <a href="#id3"><span class="problematic" id="id4">|v_y o v_xy|</span></a>)/2| * dist(x,y)^2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>ndarray of shape</em><em> (</em><em>n_features</em><em>,</em><em>)</em>) – Point, of the form [x_1, x_2, …, x_n, vx_1, vx_2, …, vx_n], where x_i are coordinates and vx_i are the coordinates of the normed direction vector.</p></li>
+<li><p><strong>y</strong> (<em>ndarray  of shape</em><em> (</em><em>n_features</em><em>,</em><em>)</em>) – Point, of the form [y_1, y_2, …, y_n, vy_1, vy_2, …, vy_n], where y_i are coordinates and vy_i are the coordinates of the normed direction vector.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Distance between the two points.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="LUCK.LUCK.get_average_vector">
+<code class="sig-prename descclassname">LUCK.LUCK.</code><code class="sig-name descname">get_average_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vectors</span></em>, <em class="sig-param"><span class="n">return_variation</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LUCK.LUCK.get_average_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the average vector of a set of vectors and the variation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vectors</strong> (<em>ndarray of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – Set of vectors.</p></li>
+<li><p><strong>return_variation</strong> (<em>bool</em><em>, </em><em>default=False</em>) – Returns variation if True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Average vector and if return_variation is True then also variation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_features,) if return_variation is False, else list [ndarray of shape (n_features), int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="LUCK.LUCK.get_normed_vector">
+<code class="sig-prename descclassname">LUCK.LUCK.</code><code class="sig-name descname">get_normed_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LUCK.LUCK.get_normed_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the normed vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vector</strong> (<em>ndarray of shape</em><em> (</em><em>n_features</em><em>,</em><em>)</em>) – Vector.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Normed vector.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray of shape (n_features,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">LUCK</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Lisa Stephan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
