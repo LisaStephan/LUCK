@@ -27,7 +27,7 @@ if __name__ == '__main__':
 ```
 
 ## Documentation
-Link to the [documentation](./docs/index.html).
+Link to the [documentation](https://lisastephan.github.io/LUCK/).
 
 ## Paper
 Link to the [paper](https://dl.acm.org/doi/abs/10.1145/3335783.3335801) for more information about LUCK.
